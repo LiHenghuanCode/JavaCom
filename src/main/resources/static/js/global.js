@@ -1,4 +1,4 @@
-
+var CONTEXT_PATH = "/nc";
 
 window.alert = function(message) {
 	if(!$(".alert-box").length) {
