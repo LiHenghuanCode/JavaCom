@@ -1,6 +1,7 @@
 package com.lhh.nc.config;
 
 
+import com.lhh.nc.controller.interceptor.LoginTicketInterceptor;
 import com.lhh.nc.controller.interceptor.NCInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
     @Autowired
     private NCInterceptor ncInterceptor;
+    @Autowired
+    private LoginTicketInterceptor loginTicketInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -21,7 +24,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(loginTicketInterceptor)
                 .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
 
-        registry.addInterceptor(loginRequiredInterceptor)
-                .excludePathPatterns("/**/*.css", "/**/*.js", "/**/*.png", "/**/*.jpg", "/**/*.jpeg");
+
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Component
 public class NCInterceptor implements HandlerInterceptor {
-    private static final Logger logger = LoggerFactory.getLogger(AlphaInterceptor.class);
+    private static final Logger logger = LoggerFactory.getLogger(NCInterceptor.class);
 
     // 在Controller之前执行
     @Override

@@ -32,30 +32,37 @@
 								<a class="nav-link" th:href="@{/index}">首页</a>
 							</li>
 
-							<li class="nav-item ml-3 btn-group-vertical">
-								<a class="nav-link position-relative" href="site/letter.html">消息<span class="badge badge-danger">12</span></a>
+							<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser!=null}">
+								<a class="nav-link position-relative" href="site/letter.html">
+									消息<span class="badge badge-danger">12</span></a>
 							</li>
 
-							<li class="nav-item ml-3 btn-group-vertical">
+							<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}">
 								<a class="nav-link" th:href="@{/register}">注册</a>
 							</li>
 
-							<li class="nav-item ml-3 btn-group-vertical">
+							<li class="nav-item ml-3 btn-group-vertical" th:if="${loginUser==null}">
 								<a class="nav-link" th:href="@{/login}">登录</a>
 							</li>
 
-							<li class="nav-item ml-3 btn-group-vertical dropdown">
+							<li class="nav-item ml-3 btn-group-vertical dropdown" th:if="${loginUser!=null}">
 								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-									<img src="http://images.nowcoder.com/head/1t.png" class="rounded-circle" style="width:30px;"/>
+									<img th:src="${loginUser.headerUrl}"
+										 class="rounded-circle" style="width:30px;"/>
 								</a>
 
 
 								<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
 									<a class="dropdown-item text-center" href="site/profile.html">个人主页</a>
-									<a class="dropdown-item text-center" href="site/setting.html">账号设置</a>
+
+									<a class="dropdown-item text-center" th:href="@{/user/setting}">账号设置</a>
+
 									<a class="dropdown-item text-center" th:href="@{/logout}">退出登录</a>
+
 									<div class="dropdown-divider"></div>
-									<span class="dropdown-item text-center text-secondary">nowcoder</span>
+									<span class="dropdown-item text-center text-secondary"
+										  th:utext="${loginUser.username}"></span>
 								</div>
 
 
@@ -137,7 +144,7 @@
 
 						<a href="site/profile.html">
 							<!-- themeleaf 的规定写法，在使用 . 时，会调用get+字段名字的方法-->
-							<img src="${map.user.headerUrl}"  class="mr-4 rounded-circle" alt="用户头像" style="width:50px;height:50px;">
+							<img th:src="${map.user.headerUrl}"  class="mr-4 rounded-circle" alt="用户头像" style="width:50px;height:50px;">
 
 						</a>
 						<div class="media-body">
