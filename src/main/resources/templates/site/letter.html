@@ -42,7 +42,10 @@
 						</li>
 
 					</ul>
-					<button type="button" class="btn btn-primary btn-sm position-absolute rt-0" data-toggle="modal" data-target="#sendModal">发私信</button>
+					<button type="button" class="btn btn-primary btn-sm position-absolute rt-0"
+							data-toggle="modal" data-target="#sendModal">
+						发私信</button>
+
 				</div>
 				<!-- 弹出框 -->
 				<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -119,10 +122,13 @@
 								></span>
 
 							</h6>
+
 							<div>
-								<a href="letter-detail.html"
+								<a th:href="@{|/letter/detail/${map.conversation.conversationId}|}"
 								   th:utext="${map.conversation.content}"
 								></a>
+
+
 
 								<ul class="d-inline font-size-12 float-right">
 									<li class="d-inline ml-2"><a href="#" class="text-primary">

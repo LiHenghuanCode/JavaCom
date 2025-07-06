@@ -53,4 +53,11 @@ public class HomeController {
     }
 
     // 通过discussPosts找到多个map对象，每个map对象存放两个键值对分别找到，帖子和帖子用户两个实体
+
+    @RequestMapping(path = "/error", method = RequestMethod.GET)
+    public String getErrorPage() {
+        return "/error/500";
+    }
+
+
 }
